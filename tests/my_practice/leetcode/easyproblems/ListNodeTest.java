@@ -13,13 +13,18 @@ class ListNodeTest {
     }
     @Test
     void adding(){
-        ListNode node = problem21.addToListNode(new int[]{1,2,3,4,5});
+        ListNode node = problem21.addToListNode(new int[]{1,2,3,4,5} , 0);
         problem21.printListNode(node);
     }
 
     @Test
     void adding2(){
-        ListNode node = problem21.addToListNode(problem21.addToListNode(new int[]{1,2,3,4,5}));
+        ListNode node1 = problem21.addToListNode(new int[]{1,2,3,4,5}, 0);
+        problem21.printListNode(node1);
+        System.out.println("*************************");
+
+        ListNode node = problem21.addToListNode(node1);
+
         problem21.printListNode(node);
     }
 }

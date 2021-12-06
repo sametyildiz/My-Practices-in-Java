@@ -1,5 +1,7 @@
 package my_practice.leetcode.easyproblems;
 
+import java.util.List;
+
 public class Problem21 {
     /**
      * You are given the heads of two sorted linked lists list1 and list2.
@@ -10,68 +12,37 @@ public class Problem21 {
      *
      *  */
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        if(list1 == null && list2 == null)
+            return null;
+        if( list2 == null )
+            return new ListNode( list1.val, mergeTwoLists(list1.next, list2));
+        else if(list1 == null)
+            return new ListNode( list2.val, mergeTwoLists(list1, list2.next));
+        else if(list1.val < list2.val)
+            return new ListNode( list1.val, mergeTwoLists(list1.next, list2));
+        else
+            return new ListNode( list2.val, mergeTwoLists(list1, list2.next));
 
-        ListNode node = new ListNode();
-        ListNode tmpNode = new ListNode();
-        while (list1 != null || list2 != null){
-            if( list2.next == null || list1.val < list2.val){
-                node = new ListNode( list1.val , tmpNode);
-                tmpNode = node;
-                list1 = list1.next;
-            }
-            else if( list1.next == null || list2.val < list1.val){
-                node = new ListNode( list2.val , tmpNode);
-                tmpNode = node;
-                list2 = list2.next;
-            }else{
-                node = new ListNode( list1.val , tmpNode);
-                tmpNode = node;
-                node = new ListNode( list2.val , tmpNode);
-                tmpNode = node;
-
-                list1 = list1.next;
-                list2 = list2.next;
-            }
-        }
-        return node;
     }
 
-    /*public ListNode addToListNode(int[] array){
-        ListNode lastNode = new ListNode(array[array.length-1]);
-        ListNode node = new ListNode();
-        for(int i = array.length-2 ; i > -1 ; i--){
-            node = new ListNode(array[i] , lastNode);
-            lastNode = node;
-        }
-        return node;
-    }*/
 
-    public ListNode addToListNode(int[] array){
+    public ListNode addToListNode(int[] array, int index){
+        if(array == null || index == array.length)
+            return null;
+        return new ListNode(array[index], addToListNode(array, index + 1 ));
 
-        ListNode node = new ListNode();
-        ListNode tmpNode = new ListNode();
-        int i = 0;
-        while(i < array.length) {
-           node = new ListNode(array[i], i++ == 0 ? null : tmpNode);
-           tmpNode = node;
-        }
-        return node;
+
     }
     public ListNode addToListNode(ListNode inputNode){
+        if(inputNode == null)
+            return null;
+        return new ListNode(inputNode.val , addToListNode(inputNode.next));
 
-        ListNode node = new ListNode();
-        ListNode tmpNode = new ListNode();
-        while(inputNode != null) {
-            node = new ListNode(inputNode.val , tmpNode);
-            tmpNode = node;
-            inputNode = inputNode.next;
-        }
-        return node;
     }
 
     public void printListNode(ListNode node){
         while (node != null){
-            System.out.println(node.val);
+            System.out.print(node.val + " ");
             node = node.next;
         }
     }

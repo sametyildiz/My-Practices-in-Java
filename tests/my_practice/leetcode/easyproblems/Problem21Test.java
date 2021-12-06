@@ -23,17 +23,24 @@ class Problem21Test {
 
     private static Stream<Arguments> arrayArgs(){
         return Stream.of(
-                Arguments.of(new int[]{1,3,5,7,9} , new int[]{2,4,6,8})
+                Arguments.of(new int[]{1,3,5,7,9} , new int[]{2,4,6,8}),
+                Arguments.of(new int[]{-3,-2,10,0,100} , new int[]{2,4,6,8}),
+                Arguments.of(null , new int[]{2,4,6,8}),
+                Arguments.of(null , null),
+                Arguments.of(null , new int[]{0})
         );
     }
 
 
     @ParameterizedTest
     @MethodSource("arrayArgs")
-    void addtoNode(int[] array1 , int[] array2) {
-        node1 = problem21.addToListNode(array1);
-        node2 = problem21.addToListNode(array2);
+    void mergeTwoLists(int[] array1 , int[] array2) {
+
+        node1 = problem21.addToListNode(array1,0);
+        node2 = problem21.addToListNode(array2,0);
         Assertions.assertDoesNotThrow(()->problem21.printListNode(  problem21.mergeTwoLists(node1 , node2)));
+        System.out.println("");
     }
+
 
 }

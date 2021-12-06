@@ -1,17 +1,19 @@
 package my_practice.cargo_company.branches;
 
-import com.my_practice.cargo_company.adress.Adress;
-import com.my_practice.cargo_company.users.Employee;
-import com.my_practice.cargo_company.users.Transporter;
-import com.my_practice.cargo_company.users.Users;
-import com.my_practice.cargo_company.users.UsersType;
+
+
+import my_practice.cargo_company.adress.Adress;
+import my_practice.cargo_company.users.Employee;
+import my_practice.cargo_company.users.Transporter;
+import my_practice.cargo_company.users.Users;
+import my_practice.cargo_company.users.UsersType;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Branch {
-    private final Map<String,Employee> branchEmployees;
-    private final Map<String,Transporter> branchTransporters;
+    private final Map<String, Employee> branchEmployees;
+    private final Map<String, Transporter> branchTransporters;
 
     private final String branchName;
     private final Adress adress;

@@ -1,8 +1,8 @@
 package my_practice.cargo_company.users;
 
-import com.my_practice.cargo_company.adress.Adress;
-import com.my_practice.cargo_company.branches.Branch;
-import com.my_practice.cargo_company.utils.Tools;
+import my_practice.cargo_company.adress.Adress;
+import my_practice.cargo_company.branches.Branch;
+import my_practice.cargo_company.utils.Tools;
 
 import java.util.HashMap;
 import java.util.Map;

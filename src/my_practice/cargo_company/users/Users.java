@@ -1,6 +1,6 @@
 package my_practice.cargo_company.users;
 
-import com.my_practice.cargo_company.utils.Tools;
+import my_practice.cargo_company.utils.Tools;
 
 import java.util.Objects;
 
