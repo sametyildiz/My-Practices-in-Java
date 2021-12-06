@@ -134,12 +134,3 @@ fabric.properties
 hs_err_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij
-/src/my_practice/Maths/
-/src/my_practice/stream/
-/src/my_practice/lambdas/
-/src/my_practice/parenthesis/
-/src/my_practice/threads/
-/tests/my_practice/lambdas/
-/tests/my_practice/Maths/
-/tests/my_practice/stream/
-/tests/my_practice/threads/
