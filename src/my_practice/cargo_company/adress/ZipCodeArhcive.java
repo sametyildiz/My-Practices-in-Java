@@ -19,13 +19,12 @@ public class ZipCodeArhcive {
         return zipCodeMap.getOrDefault(zipCode, null);
     }
 
-    static int addNewZipCode(String city, String state, String neighborhood){
-        int newZipCode = zipCodeGenerator();
-        zipCodeMap.put(newZipCode , new ZipCode( newZipCode, city, state, neighborhood ) );
-        return newZipCode;
+    static ZipCode addNewZipCode(int zipCode, String city, String state, String neighborhood){
+        zipCodeMap.put(zipCode , new ZipCode( zipCode, city, state, neighborhood ) );
+        return zipCodeMap.get(zipCode);
     }
 
-    private static boolean checkZipCode(int zipCode){
+    static boolean checkZipCode(int zipCode){
         return zipCodeMap.containsKey(zipCode);
     }
 

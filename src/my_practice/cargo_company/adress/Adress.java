@@ -1,6 +1,9 @@
 package my_practice.cargo_company.adress;
 
+import java.util.Scanner;
+
 public class Adress {
+    private final Scanner scanner = new Scanner(System.in);
     private String aparmentNo;
     private int doorNo;
     private ZipCode zipCode;
@@ -10,16 +13,27 @@ public class Adress {
     TODO check the zipCode == Null in employee
      */
 
-    public Adress(int zipCode, String aparmentNo, int doorNo) {
-        this.zipCode = ZipCodeArhcive.getAdressInfo(zipCode);
-        this.aparmentNo = aparmentNo;
-        this.doorNo = doorNo;
+        public Adress(int zipCode, String aparmentNo, int doorNo) {
+            if(ZipCodeArhcive.checkZipCode(zipCode)){
+                this.zipCode = ZipCodeArhcive.getAdressInfo(zipCode);
+            }
+            else{
+                String[] adress = getAdressInfo();
+                this.zipCode = ZipCodeArhcive.addNewZipCode(zipCode, adress[0], adress[1], adress[2]);
+            }
+            this.aparmentNo = aparmentNo;
+            this.doorNo = doorNo;
     }
-    public Adress(String city, String state, String neighborhood, String aparmentNo, int doorNo) {
-        int newZipCode = ZipCodeArhcive.addNewZipCode(city, state, neighborhood);
-        this.zipCode = ZipCodeArhcive.getAdressInfo(newZipCode);
-        this.aparmentNo = aparmentNo;
-        this.doorNo = doorNo;
+    private String[] getAdressInfo(){
+            //String city, String state, String neighborhood
+        String[] adress = new String[3];
+        System.out.print("City : ");
+        adress[0] = scanner.nextLine();
+        System.out.print("\nState : ");
+        adress[1] = scanner.nextLine();
+        System.out.print("\nNeighborhood : ");
+        adress[2] = scanner.nextLine();
+        return adress;
     }
 
     @Override

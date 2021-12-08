@@ -51,15 +51,19 @@ public class Branch {
     public void printBranchInfo(){
         System.out.println(this);
         System.out.println("******************************");
+        System.out.println(UsersType.employee);
+        branchEmployees.forEach((key1, value1) -> System.out.printf("%s\n", value1));
         System.out.println("******************************");
+        System.out.println(UsersType.transportationPersonnel);
+        branchTransporters.forEach((key, value) -> System.out.printf("%s\n", value));
 
     }
 
     @Override
     public String toString() {
-        return String.format("%11s : %s \n" +
-                             "%11s : %d \n" +
-                             "%11s :\n %s \n" ,"Branch Name" , branchName,
+        return String.format("%11s  : %s \n" +
+                             "%11s  : %d \n" +
+                             "%11s  :\n%s \n" ,"Branch Name" , branchName,
                                                "Branch Code" , branchCode,
                                                "Adress"      , adress  );
     }
@@ -68,7 +72,7 @@ public class Branch {
         HashMap<String , ?> personnels ;
         if(type.isAssignableFrom(Employee.class))
             personnels = (HashMap<String, ?>) branchEmployees;
-        else if (type.isAssignableFrom(Employee.class))
+        else if (type.isAssignableFrom(Transporter.class))
             personnels = (HashMap<String, ?>) branchTransporters;
         else throw new NullPointerException();
 

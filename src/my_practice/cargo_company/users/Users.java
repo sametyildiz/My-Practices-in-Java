@@ -39,7 +39,7 @@ public  class Users {
     }
 
     String giveID() {
-        return getUsersType().toString().substring(0,3).toUpperCase().concat((Tools.randomID(8)));
+        return getUsersType().toString().substring(0,2).toUpperCase().concat((Tools.randomID(8)));
     }
 
     public UsersType getUsersType() {
