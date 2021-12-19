@@ -6,18 +6,17 @@ package my_practice.leetcode.mediumproblems;
  *  */
 public class Problem3 {
 
-    public int lengthOfLongestSubstring(String s) {//tooSlow;
+    public int lengthOfLongestSubstring(String s) {
         String str = "";int max = 0 , i = 0;
         while (i < s.length() ){
             char c = s.charAt(i);
             if(!str.contains(String.valueOf(c))) {
                 str += c;
                 max = Math.max(str.length(), max);
+                i++;
             }else {
-                i = i - str.length();
-                str = "";
+                str = str.substring(1);
             }
-            i++;
 
         }
         return max;
